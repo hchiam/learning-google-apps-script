@@ -7,4 +7,4 @@ Did you know you can write code to modify things like Google Docs?
 
 Each .gs file is its own example.
 
-Learn from [the docs](https://developers.google.com/gsuite/add-ons/editors/docs/quickstart/translate) or [GitHub examples](https://github.com/gsuitedevs/apps-script-samples) or [Codelabs](https://codelabs.developers.google.com/codelabs/apps-script-intro/).
+Learn from [a video](https://youtu.be/MOggwSls7xQ) or [the docs](https://developers.google.com/gsuite/add-ons/editors/docs/quickstart/translate) or [GitHub examples](https://github.com/gsuitedevs/apps-script-samples) or [Codelabs](https://codelabs.developers.google.com/codelabs/apps-script-intro/).
