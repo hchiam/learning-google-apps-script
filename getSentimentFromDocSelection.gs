@@ -1,5 +1,7 @@
 // reference: https://codelabs.developers.google.com/codelabs/nlp-from-google-docs
 
+// NOTE: I haven't tested this one. You're prolly better off trying out the other examples. :)
+
 function getSentiment(text) {
   var apiKey = "your key here";
   var apiEndpoint = 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' + apiKey;
