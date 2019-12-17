@@ -3,6 +3,8 @@ Just one of the things I'm learning. https://github.com/hchiam/learning
 
 Did you know you can write code to modify things like Google Docs?
 
+https://script.google.com
+
 ## About the examples:
 
 Each .gs file is its own example.
