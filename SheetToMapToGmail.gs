@@ -1,7 +1,7 @@
 // reference: https://codelabs.developers.google.com/codelabs/apps-script-intro/
 
 /** @OnlyCurrentDoc */
-// the comment above is special: it limit access to only this one spreadsheet (instead of all of a user's spreadsheets)
+// the comment above is special: it limits access to only this doc (instead of all of a user's docs)
 function sendMap() {
   var sheet = SpreadsheetApp.getActiveSheet();
   var address = sheet.getRange('A1').getValue();
