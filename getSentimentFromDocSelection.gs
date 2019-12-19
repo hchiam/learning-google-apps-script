@@ -1,3 +1,6 @@
+/** @OnlyCurrentDoc */
+// the comment above is special: it limits access to only this doc (instead of all of a user's docs)
+
 // reference: https://codelabs.developers.google.com/codelabs/nlp-from-google-docs
 
 // NOTE: I haven't tested this one. You're prolly better off trying out the other examples. :)
