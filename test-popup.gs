@@ -1,8 +1,5 @@
-/**
-* @OnlyCurrentDoc
-* 
-* The above comment restricts to read only the current doc.
-*/
+/** @OnlyCurrentDoc */
+// the comment above is special: it limits access to only this doc (instead of all of a user's docs)
 
 // on install of add-on:
 function onInstall(e) { // this must be named onInstall(e)
