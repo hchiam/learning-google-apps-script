@@ -1,5 +1,6 @@
-var doc = DocumentApp.openById('The part of the URL in dots here: https://docs.google.com/document/d/.../');
-// or: var doc = DocumentApp.getActiveDocument();
+// You can get the Google Doc's ID from the part of the URL in dots here: https://docs.google.com/document/d/copy-this-id/...
+// var doc = DocumentApp.openById('copy-this-id');
+var doc = DocumentApp.getActiveDocument();
 
 function doTheThing() {
   addToListUnderHeading('heading text', 'list item text');
