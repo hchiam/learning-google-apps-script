@@ -1,5 +1,5 @@
-/** @OnlyCurrentDoc */
-// the comment above is special: it limits access to only this doc (instead of all of a user's docs)
+var doc = DocumentApp.openById('The part of the URL in dots here: https://docs.google.com/document/d/.../');
+// or: var doc = DocumentApp.getActiveDocument();
 
 function doTheThing() {
   addToListUnderHeading('heading text', 'list item text');
@@ -13,7 +13,6 @@ function addToListUnderHeading(headingText, listItemText) {
 }
 
 function findHeadingIndex(headingText) {
-  var doc = DocumentApp.getActiveDocument();
   var body = doc.getBody();
   for (var i=0; i<body.getNumChildren(); i++) {
     var child = body.getChild(i);
@@ -28,8 +27,7 @@ function findHeadingIndex(headingText) {
 }
 
 function addToListUnderHeadingIndex(headingIndex, listItemText) {
-  // assumes list starts immediately after the heading's text
-  var doc = DocumentApp.getActiveDocument();
+  /* assumes list starts immediately after the heading's text */
   var body = doc.getBody();
   for (var i=headingIndex+1; i<body.getNumChildren(); i++) {
     var child = body.getChild(i);
