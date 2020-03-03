@@ -8,12 +8,10 @@ function processOnePdfText(pdfText, startOutputCellRange, precedingDividerText='
   row++;
   writeToCell(column + row, getKeys(pdfText));
   row++;
-  writeToCell(column + row, getMv(pdfText));
-  row++;
   // make sure to update getNumberOfOutputRowsPerInput
 }
 
 function getNumberOfOutputRowsPerInput() {
   // make sure matches number of rows in processOnePdfText(pdfText, startCellRange)
-  return 4;
+  return 3;
 }

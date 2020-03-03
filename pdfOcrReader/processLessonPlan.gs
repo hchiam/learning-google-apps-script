@@ -14,9 +14,3 @@ function getTitle(text) {
 function getKeys(text) {
   return getFirstMatch(text, /( 1\).+?\(.+?\))/g);
 }
-
-function getMv(text) {
-  const mvRegex = /(Memory Verse.+?\(.+?\))/g;
-  const fromLessonAimsToMvRegex = /( 1\).+?\(.+?\))/g;
-  return getFirstMatch(text, mvRegex, fromLessonAimsToMvRegex);
-}
