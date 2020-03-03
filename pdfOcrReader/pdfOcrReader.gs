@@ -22,7 +22,7 @@ function doWhatYouWantWithPdfText(pdfUrl) {
   const pdfText = extractTextFromPdfUrl(pdfUrl);
   
   // further processing of PDF text:
-  alert(pdfText);
+  processPdfText(pdfText);
 }
 
 function extractTextFromPdfUrl(pdfUrl) {
