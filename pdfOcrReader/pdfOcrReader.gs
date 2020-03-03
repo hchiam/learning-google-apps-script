@@ -9,6 +9,7 @@ function addMenuItemToUi() {
   .getUi()
   .createMenu('PDF OCR Reader')
   .addItem('Read PDF', 'askUserForUrl') // 2nd parameter 'askUserForUrl' matches askUserForUrl()
+  .addItem('Loop Over 12 PDF URLs (A1-A12)', 'loopOver12InputCells')
   .addToUi();
 }
 
@@ -21,8 +22,8 @@ function askUserForUrl() {
 function doWhatYouWantWithPdfText(pdfUrl) {
   const pdfText = extractTextFromPdfUrl(pdfUrl);
   
-  // further processing of PDF text:
-  processPdfText(pdfText);
+  // further processing of 1 PDF text:
+  processOnePdfText(pdfText, startOutputCellRange='F1');
 }
 
 function extractTextFromPdfUrl(pdfUrl) {
@@ -67,4 +68,25 @@ function createAndGetOcrProcessedDoc(resource, blob, languageCode='en') {
     console.error(e);
     alert('Whoops! You likely need enable the Advanced Drive API Service: \n\n Resources > Advanced Google Services > Drive API: "ON"');
   }
+}
+
+function loopOver12InputCells() {
+  const inputColumn = 'A';
+  const outputColumn = 'F';
+  let outputRow = 1;
+  const numberOfOutputRowsPerInput = getNumberOfOutputRowsPerInput();
+  for (let inputRow = 1; inputRow < 13; inputRow++) {
+    const pdfUrl = getPdfUrl(inputColumn + inputRow);
+    if (!pdfUrl) continue;
+    const pdfText = extractTextFromPdfUrl(pdfUrl);
+    const outputStartCellRange = outputColumn + outputRow;
+    const precedingDividerText = '-------' + inputRow + '-------';
+    processOnePdfText(pdfText, outputStartCellRange, precedingDividerText);
+    outputRow += numberOfOutputRowsPerInput;
+  }
+}
+
+function getPdfUrl(singleCellRange) {
+  const pdfUrl = readCell(singleCellRange);
+  return pdfUrl;
 }
