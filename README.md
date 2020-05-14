@@ -11,4 +11,8 @@ You can see all your .gs files listed here: https://script.google.com
 
 Each .gs file is its own example. Here's a minimal example: [popup in Google Sheets doc](https://github.com/hchiam/learning-google-apps-script/blob/master/popup-minimal-code.gs).
 
-Learn from [a video](https://youtu.be/MOggwSls7xQ) or [the docs](https://developers.google.com/gsuite/add-ons/editors/docs/quickstart/translate) or [GitHub examples](https://github.com/gsuitedevs/apps-script-samples) or [Codelabs](https://codelabs.developers.google.com/codelabs/apps-script-intro/).
+The folder [`pdfOcrReader`](https://github.com/hchiam/learning-google-apps-script/tree/master/pdfOcrReader) contains a more involved example with multiple .gs files used to do Optical Character Recognition.
+
+Depending on which Google Doc you attach the script to, you might need to switch between one of these in the code: `DocumentApp` `SpreadsheetApp` `SlidesApp`
+
+Learn more from [a video](https://youtu.be/MOggwSls7xQ) or [the docs](https://developers.google.com/gsuite/add-ons/editors/docs/quickstart/translate) or [GitHub examples](https://github.com/gsuitedevs/apps-script-samples) or [Codelabs](https://codelabs.developers.google.com/codelabs/apps-script-intro/).
