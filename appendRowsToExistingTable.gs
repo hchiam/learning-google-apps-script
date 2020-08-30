@@ -11,6 +11,7 @@ function appendRows(
   numberOfColumns = 5,
   data = defaultEmptyData
 ) {
+  // const doc = getDoc({ url: "https://docs.google.com/document/d/.../edit" }); // need that /edit part or it might not work
   const doc = getDoc();
   const body = doc.getBody();
   const firstTableElement = body.findElement(DocumentApp.ElementType.TABLE);
