@@ -2,7 +2,7 @@ const defaultEmptyData = {date: '', name: '', mousetraps: '', waterFlowerPots: '
 
 function appendRows(numberOfRows = 1, numberOfColumns = 5, data = defaultEmptyData) {
   const doc = getDoc();
-  const body = DocumentApp.getActiveDocument().getBody();
+  const body = doc.getBody();
   const firstTableElement = body.findElement(DocumentApp.ElementType.TABLE);
   const element = firstTableElement.getElement();
   const table = element.asTable(); // Logger.log('num rows: ' + table.getNumRows());
