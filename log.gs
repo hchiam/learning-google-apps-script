@@ -1,3 +1,3 @@
-function log(text) {
-  Logger.log(text);
+function log(...text) {
+  Logger.log(...text);
 }
