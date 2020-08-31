@@ -1,4 +1,5 @@
 # Learning Google Apps Script
+
 Just one of the things I'm learning. https://github.com/hchiam/learning
 
 Did you know you can write code to modify things like Google Docs or Google Sheets?
@@ -16,3 +17,9 @@ The folder [`pdfOcrReader`](https://github.com/hchiam/learning-google-apps-scrip
 Depending on which Google Doc you attach the script to, you might need to switch between one of these in the code: `DocumentApp`, `SpreadsheetApp`, `SlidesApp`, etc. (or use a helper function like [`appHelper.gs`](https://github.com/hchiam/learning-google-apps-script/blob/master/pdfOcrReader/appHelper.gs)).
 
 Learn more from [a video](https://youtu.be/MOggwSls7xQ) or [the docs](https://developers.google.com/gsuite/add-ons/editors/docs/quickstart/translate) or [GitHub examples](https://github.com/gsuitedevs/apps-script-samples) or [Codelabs](https://codelabs.developers.google.com/codelabs/apps-script-intro/).
+
+## How to add a trigger upon form submit:
+
+<https://stackoverflow.com/questions/17992718/how-to-get-onformsubmit-to-trigger-automatically/17992883#17992883>
+
+Add the code and the "On form submit" trigger in the _sheet_ that gets populated by the form, _not_ the form itself.
