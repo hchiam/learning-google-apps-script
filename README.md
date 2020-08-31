@@ -53,3 +53,7 @@ function log(...text) {
   Logger.log(...text);
 }
 ```
+
+## Learn about API calls and add-ons
+
+<https://www.youtube.com/watch?v=xDovB0pu4OU>
