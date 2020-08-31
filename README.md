@@ -23,3 +23,33 @@ Learn more from [a video](https://youtu.be/MOggwSls7xQ) or [the docs](https://de
 <https://stackoverflow.com/questions/17992718/how-to-get-onformsubmit-to-trigger-automatically/17992883#17992883>
 
 Add the code and the "On form submit" trigger in the _sheet_ that gets populated by the form, _not_ the form itself.
+
+```js
+// use the Google Apps Script UI to create a trigger and link it to this function:
+function onFormSubmit_sheet(e) {
+  log(JSON.stringify(e));
+
+  const data = {
+    date: e.namedValues.Date[0],
+    name: e.namedValues["Name/initial"][0],
+    mousetraps:
+      e.namedValues["Checked:"][0].indexOf("Mousetraps") !== -1 ? "x" : "",
+    waterFlowerPots:
+      e.namedValues["Checked:"][0].indexOf("Water flower pots") !== -1
+        ? "x"
+        : "",
+    dehumidifierWater:
+      e.namedValues["Checked:"][0].indexOf("Dehumidifier water") !== -1
+        ? "x"
+        : "",
+  };
+
+  log(data);
+
+  // appendRowsInAGoogleDoc(1, 5, data);
+}
+
+function log(...text) {
+  Logger.log(...text);
+}
+```
