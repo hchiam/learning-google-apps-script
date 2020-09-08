@@ -7,14 +7,14 @@
  * @OnlyCurrentDoc Adds progress bars to a presentation.
  */
 var BAR_ID = "PROGRESS_BAR_ID";
-var BAR_HEIGHT = 10; // px
+var BAR_HEIGHT = 5; // px
 var presentation = SlidesApp.getActivePresentation();
 
 function onOpen() {
   SlidesApp
   .getUi()
   .createMenu('Progress bars')
-  .addItem('Add progress bars', 'createBars')
+  .addItem('Use progress bars', 'createBars')
   .addItem('Remove progress bars', 'deleteBars')
   .addToUi();
 }
@@ -39,6 +39,9 @@ function createBars() {
         BAR_HEIGHT
       );
       bar.getBorder().setTransparent();
+      var color = '#555555';
+      var alpha = 0.5;
+      bar.getFill().setSolidFill(color, alpha);
       bar.setLinkUrl(BAR_ID);
     }
   }
