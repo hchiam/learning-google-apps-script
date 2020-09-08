@@ -57,3 +57,5 @@ function log(...text) {
 ## Learn about API calls and add-ons
 
 <https://www.youtube.com/watch?v=xDovB0pu4OU>
+
+<https://developers.googleblog.com/2017/10/gmail-add-ons-framework-now-available.html>
