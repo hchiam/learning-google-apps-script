@@ -29,7 +29,9 @@ See the Google sheet here: ...
 }
 
 function alreadySentEmailToday() {
-  const sheet = SpreadsheetApp.getActiveSheet();
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(
+    "Counter Sheet"
+  );
   const counterCell = sheet.getRange(counterCellAddress);
   counterCell.setValue(counterCell.getValue() + 1);
   return counterCell.getValue() > 1;
@@ -37,7 +39,9 @@ function alreadySentEmailToday() {
 
 // add a trigger to run this once a day:
 function resetEmailCount() {
-  const sheet = SpreadsheetApp.getActiveSheet();
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(
+    "Counter Sheet"
+  );
   const counterCell = sheet.getRange(counterCellAddress);
   counterCell.setValue(0);
 }
