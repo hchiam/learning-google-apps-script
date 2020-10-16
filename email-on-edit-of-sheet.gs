@@ -1,8 +1,9 @@
 // TODO:
 // 1) install a trigger at https://script.google.com to run emailOnEdit "From spreadsheet" and "On edit".
 // 2) install a trigger at https://script.google.com to run resetEmailCount with a "Time-driven" trigger on a "Day timer".
-// 3) set the counter cell address and the target email:
+// 3) set the counter cell sheet and address, and also the target email:
 const counterCellAddress = "A1"; // <-- edit this!
+const counterCellSheetName = "Counter Sheet"; // <-- edit this!
 const targetEmailAddress = "...@gmail.com"; // <-- edit this!
 
 //// This function might not work with your permissions, so you might have to install a trigger instead anyways:
@@ -30,7 +31,7 @@ See the Google sheet here: ...
 
 function alreadySentEmailToday() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(
-    "Counter Sheet"
+    counterCellSheetName
   );
   const counterCell = sheet.getRange(counterCellAddress);
   counterCell.setValue(counterCell.getValue() + 1);
@@ -40,7 +41,7 @@ function alreadySentEmailToday() {
 // add a trigger to run this once a day:
 function resetEmailCount() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(
-    "Counter Sheet"
+    counterCellSheetName
   );
   const counterCell = sheet.getRange(counterCellAddress);
   counterCell.setValue(0);
