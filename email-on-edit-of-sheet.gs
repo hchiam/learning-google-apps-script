@@ -1,5 +1,5 @@
 // TODO:
-// 1) install a trigger at https://script.google.com to run emailOnEdit "From spreadsheet" and "On edit".
+// 1) install a trigger at https://script.google.com to run emailAtMostOnceADay "From spreadsheet" and "On edit" (or "On form submit" if the sheet was associated with a form).
 // 2) install a trigger at https://script.google.com to run resetEmailCount with a "Time-driven" trigger on a "Day timer".
 // 3) set the counter cell sheet and address, and also the target email:
 const counterCellAddress = "A1"; // <-- edit this!
@@ -11,7 +11,7 @@ const targetEmailAddress = "...@gmail.com"; // <-- edit this!
 //  if (!alreadySentEmailToday()) email();
 //}
 
-function emailOnEdit() {
+function emailAtMostOnceADay() {
   if (!alreadySentEmailToday()) email();
 }
 
