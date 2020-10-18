@@ -54,6 +54,8 @@ function log(...text) {
 }
 ```
 
+Another example: [email-onSubmitForm-onEditSheet.gs](https://github.com/hchiam/learning-google-apps-script/blob/master/email-onSubmitForm-onEditSheet.gs)
+
 ## Learn about API calls and add-ons
 
 <https://www.youtube.com/watch?v=xDovB0pu4OU>
