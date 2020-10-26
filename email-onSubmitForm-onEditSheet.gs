@@ -12,7 +12,10 @@ const targetEmailAddress = "...@gmail.com"; // <-- edit this!
 //}
 
 function emailAtMostOnceADay() {
-  if (!alreadySentEmailToday()) email();
+  if (!alreadySentEmailToday()) {
+    email();
+    setLastDateCellValue(new Date());
+  }
 }
 
 function email() {
@@ -30,12 +33,50 @@ See the Google sheet here: ...
 }
 
 function alreadySentEmailToday() {
+  const todaysDateString = getTodaysDate();
+  const lastDateString = getLastDateCellValue();
+  return todaysDateString === lastDateString;
+}
+
+function alreadyIncrementedCountToday() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(
     counterCellSheetName
   );
   const counterCell = sheet.getRange(counterCellAddress);
   counterCell.setValue(counterCell.getValue() + 1);
   return counterCell.getValue() > 1;
+}
+
+function getTodaysDate() {
+  return Utilities.formatDate(new Date(), "GMT-4", "dd/MM/yyyy");
+}
+
+function getLastDateCellValue() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(
+    counterCellSheetName
+  );
+  const lastDateCell = sheet.getRange(lastDateCellAddress);
+  const cellValue = lastDateCell.getValue();
+  if (isValidDate(cellValue)) {
+    return Utilities.formatDate(cellValue, "GMT-4", "dd/MM/yyyy");
+  }
+  return "";
+}
+
+function isValidDate(value) {
+  const isDateObject =
+    Object.prototype.toString.call(value) === "[object Date]";
+  if (!isDateObject) return false;
+  const canGetTime = !isNaN(value.getTime());
+  return canGetTime;
+}
+
+function setLastDateCellValue(date) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(
+    counterCellSheetName
+  );
+  const lastDateCell = sheet.getRange(lastDateCellAddress);
+  lastDateCell.setValue(date);
 }
 
 // add a trigger to run this once a day:
