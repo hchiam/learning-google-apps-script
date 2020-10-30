@@ -4,7 +4,7 @@
 // 3) set the counter cell sheet and address, and also the target email:
 const counterCellAddress = "A1"; // <-- edit this!
 const counterCellSheetName = "Counter Sheet"; // <-- edit this!
-const targetEmailAddress = "...@gmail.com"; // <-- edit this!
+const targetEmailAddress = "...@gmail.com"; // <-- edit this! (make sure it's an email you're allowed to send to)
 
 //// This function might not work with your permissions, so you might have to install a trigger instead anyways:
 //function onEdit(event) {
