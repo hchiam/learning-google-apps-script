@@ -5,7 +5,7 @@ const emailAdress = "...@gmail.com";
 
 function sendNews() {
   triggerRefresh();
-  Utilities.sleep(5000);
+  Utilities.sleep(5000); // otherwise cells might not have finished recalculating
   email(emailAdress, "Automatic News Updates", getNewsText(), getNewsTextAsHtml());
 }
 
