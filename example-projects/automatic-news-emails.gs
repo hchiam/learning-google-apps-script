@@ -1,7 +1,31 @@
-// TODO:
-// 1) install a trigger at https://script.google.com to run sendNews with a "Time-driven" trigger on a "Day timer".
-// 2) set target email below:
-const emailAdress = "...@gmail.com";
+/*
+TODO:
+
+1) Create a Google Sheet, and change the name of one of the sheets to "News" (without quotation marks).
+
+2) Add this script (see README.md for steps on how to do this).
+
+2) Install a trigger (associated with this Sheet/Script project) at https://script.google.com to run sendNews with a "Time-driven" trigger on a "Day timer".
+
+3) In sheet "News", put these formulas into cells G3, G4, G6, G7, G9, G10:
+=IMPORTXML("https://www.cbc.ca/cmlink/rss-topstories","//item[1]/title")
+=IMPORTXML("https://www.cbc.ca/cmlink/rss-topstories","//item[1]/description")
+=IMPORTXML("https://www.cbc.ca/cmlink/rss-canada-kitchenerwaterloo","//item[1]/title")
+=IMPORTXML("https://www.cbc.ca/cmlink/rss-canada-kitchenerwaterloo","//item[1]/description")
+=IMPORTXML("https://www.cbc.ca/cmlink/rss-technology","//item[1]/title")
+=IMPORTXML("https://www.cbc.ca/cmlink/rss-technology","//item[1]/description")
+
+4) In sheet "News", put these formulas into cells A3, A4, A6, A7, A9, A10:
+=IMPORTXML(G3,"//item[1]/title")
+=IMPORTXML(G4,"//item[1]/description")
+=IMPORTXML(G6,"//item[1]/title")
+=IMPORTXML(G7,"//item[1]/description")
+=IMPORTXML(G9,"//item[1]/title")
+=IMPORTXML(G10,"//item[1]/description")
+
+5) set the target email below:
+*/
+const emailAdress = "...@gmail.com"; // (make sure it's an email you're allowed to send to)
 
 function sendNews() {
   triggerRefresh();
