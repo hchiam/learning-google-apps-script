@@ -1,5 +1,5 @@
 /*
-TODO:
+TO USE THIS:
 
 1) Create a Google Sheet, and change the name of one of the sheets to "News" (without quotation marks).
 
