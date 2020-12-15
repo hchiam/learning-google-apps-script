@@ -61,3 +61,5 @@ Another example: [email-onSubmitForm-onEditSheet.gs](https://github.com/hchiam/l
 <https://www.youtube.com/watch?v=xDovB0pu4OU>
 
 <https://developers.googleblog.com/2017/10/gmail-add-ons-framework-now-available.html>
+
+Example G-Suite Google Slides Add-on: <https://github.com/hchiam/slides-titler>
