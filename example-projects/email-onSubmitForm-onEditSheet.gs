@@ -102,10 +102,10 @@ function emailAfterIdleTooLong() {
 }
 
 function beenIdleTooLong() {
-  const dateDaysAgo = new Date(
+  const dateOfMonthXDaysAgo = new Date(
     new Date().getTime() - daysForIdleTooLong * 24 * 60 * 60 * 1000
-  );
-  return getLastDateCellDate() <= dateDaysAgo;
+  ).getDate();
+  return getLastDateCellDate() % dateOfMonthXDaysAgo === 0; // instead of <= (which would be emailing every day)
 }
 
 function getLastDateCellDate() {
