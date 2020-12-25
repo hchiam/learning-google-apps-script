@@ -102,10 +102,11 @@ function emailAfterIdleTooLong() {
 }
 
 function beenIdleTooLong() {
+  // compare date of month (assumes you're using a "Time-driven" trigger on a "Day timer")
   const dateOfMonthXDaysAgo = new Date(
     new Date().getTime() - daysForIdleTooLong * 24 * 60 * 60 * 1000
   ).getDate();
-  return getLastDateCellDate() % dateOfMonthXDaysAgo === 0; // instead of <= (which would be emailing every day)
+  return getLastDateCellDate().getDate() % dateOfMonthXDaysAgo === 0; // instead of <= (which would be emailing every day)
 }
 
 function getLastDateCellDate() {
