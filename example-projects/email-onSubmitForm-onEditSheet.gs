@@ -1,5 +1,6 @@
 // TODO:
-// 1) install a trigger at https://script.google.com to run both onFormSubmit_sheet and emailAtMostOnceADay "From spreadsheet" and "On edit" (or "On form submit" if the sheet was associated with a form).
+// 1) install a trigger at https://script.google.com to run both onFormSubmit_sheet "From spreadsheet" and "On edit" (or "On form submit" if the sheet was associated with a form).
+//     - make onFormSubmit_sheet call emailAtMostOnceADay
 // 2) install a trigger at https://script.google.com to run timeBasedChecks with a "Time-driven" trigger on a "Day timer".
 // 3) set the counter cell sheet and address, and also the target email:
 const counterCellAddress = "A1"; // <-- edit this!
@@ -13,14 +14,14 @@ const daysForIdleTooLong = 14;
 //  if (!alreadySentEmailToday()) email();
 //}
 
-function emailAtMostOnceADay() {
+function emailAtMostOnceADay(data) {
   if (!alreadySentEmailToday()) {
-    email();
+    email(data);
     setLastDateCellValue(new Date());
   }
 }
 
-function email() {
+function email(data) {
   const emailTo = targetEmailAddress;
   const emailSubject = "test email";
   const emailBody = `Hi! 
@@ -28,6 +29,8 @@ function email() {
 This is an automated message: 
 
 Someone edited the form or Google sheet today! 
+
+${data && data.comment ? "Here's the original comment: \n" + comment : ""}
 
 See the Google sheet here: ...
 `;
