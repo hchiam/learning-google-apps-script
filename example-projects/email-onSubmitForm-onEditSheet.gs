@@ -1,10 +1,12 @@
 // TODO:
-// 1) install a trigger at https://script.google.com to run emailAtMostOnceADay "From spreadsheet" and "On edit" (or "On form submit" if the sheet was associated with a form).
-// 2) install a trigger at https://script.google.com to run resetEmailCount with a "Time-driven" trigger on a "Day timer".
+// 1) install a trigger at https://script.google.com to run both onFormSubmit_sheet and emailAtMostOnceADay "From spreadsheet" and "On edit" (or "On form submit" if the sheet was associated with a form).
+// 2) install a trigger at https://script.google.com to run timeBasedChecks with a "Time-driven" trigger on a "Day timer".
 // 3) set the counter cell sheet and address, and also the target email:
 const counterCellAddress = "A1"; // <-- edit this!
+const lastDateCellAddress = "C1"; // <-- edit this!
 const counterCellSheetName = "Counter Sheet"; // <-- edit this!
 const targetEmailAddress = "...@gmail.com"; // <-- edit this! (make sure it's an email you're allowed to send to)
+const daysForIdleTooLong = 14;
 
 //// This function might not work with your permissions, so you might have to install a trigger instead anyways:
 //function onEdit(event) {
@@ -80,10 +82,46 @@ function setLastDateCellValue(date) {
 }
 
 // add a trigger to run this once a day:
+function timeBasedChecks() {
+  resetEmailCount();
+  emailAfterIdleTooLong();
+}
+
 function resetEmailCount() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(
     counterCellSheetName
   );
   const counterCell = sheet.getRange(counterCellAddress);
   counterCell.setValue(0);
+}
+
+function emailAfterIdleTooLong() {
+  if (beenIdleTooLong()) {
+    emailIdleTooLong();
+  }
+}
+
+function beenIdleTooLong() {
+  const dateDaysAgo = new Date(
+    new Date().getTime() - daysForIdleTooLong * 24 * 60 * 60 * 1000
+  );
+  return getLastDateCellDate() <= dateDaysAgo;
+}
+
+function getLastDateCellDate() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(
+    counterCellSheetName
+  );
+  const lastDateCell = sheet.getRange(lastDateCellAddress);
+  return lastDateCell.getValue();
+}
+
+function emailIdleTooLong() {
+  const emailTo = targetEmailAddress;
+  const emailSubject = `Idle for ${daysForIdleTooLong} days: `;
+  const emailBody = `This is an automated message. 
+
+It's been at least ${daysForIdleTooLong} days since someone submitted to the form. 
+`;
+  GmailApp.sendEmail(emailTo, emailSubject, emailBody);
 }
