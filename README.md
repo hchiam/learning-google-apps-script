@@ -69,3 +69,5 @@ Another example: [email-onSubmitForm-onEditSheet.gs](https://github.com/hchiam/l
 <https://developers.googleblog.com/2017/10/gmail-add-ons-framework-now-available.html>
 
 Example G-Suite Google Slides Add-on: <https://github.com/hchiam/slides-titler>
+
+Starters for add-ons / web apps / chat bots are available in the Getting Started page when you log into Google Apps Script: <https://script.google.com/home/start>
