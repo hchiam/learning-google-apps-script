@@ -1,4 +1,4 @@
-// see set-get-cell-value.gs
+// see set-get-cell-value.gs for more generic helpers
 
 function writeToCell(range, value) {
   // range can be 'A1'
