@@ -2,16 +2,7 @@ const mainSheetName = "Sheet1";
 const counterCellSheetName = "Script-protected sheet";
 
 function onEdit(e) {
-  weaklyRestoreCellValueOnEdit(
-    e,
-    {
-      left: 1, // A1
-      top: 1,
-      right: 2, // B1
-      bottom: 1,
-    },
-    counterCellSheetName
-  );
+  weaklyRestoreCellValueOnEdit(e, {}, counterCellSheetName);
   const lastDateCellAddress = "C1";
   const canEdit = !alreadyEditedToday(lastDateCellAddress);
   if (canEdit) {
