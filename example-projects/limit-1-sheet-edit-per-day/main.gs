@@ -1,6 +1,10 @@
 const mainSheetName = "Sheet1";
 const counterCellSheetName = "Script-protected sheet";
 
+function onOpen() {
+  alert("Note: You can only make 1 edit a day.");
+}
+
 function onEdit(e) {
   weaklyRestoreCellValueOnEdit(e, {}, counterCellSheetName);
   const lastDateCellAddress = "C1";
