@@ -30,7 +30,7 @@ This is an automated message:
 
 Someone edited the form or Google sheet today! 
 
-${data && data.comment ? "Here's the original comment: \n" + comment : ""}
+${data && data.comment ? "Here's the original comment: \n" + data.comment : ""}
 
 See the Google sheet here: ...
 `;
