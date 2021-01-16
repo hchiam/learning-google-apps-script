@@ -59,7 +59,9 @@ function weaklyRestoreCellValueOnEdit(
     (!protectedRange.bottom || row <= protectedRange.bottom) &&
     (!protectedRange.left || col >= protectedRange.left) &&
     (!protectedRange.right || col <= protectedRange.right);
-  if (inProtectedRange) {
+  const onProtectedSheet =
+    sheetName === spreadsheet.getActiveSheet().getSheetName();
+  if (inProtectedRange && onProtectedSheet) {
     activeCell.setValue(eFromOnEdit.oldValue);
   }
 }

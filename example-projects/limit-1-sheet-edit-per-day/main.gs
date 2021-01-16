@@ -33,7 +33,7 @@ function trackUserEditedToday(e) {
   const canEditToday = getCellValue("B6", counterCellSheetName);
   if (!canEditToday) {
     weaklyRestoreCellValueOnEdit(e, {}, mainSheetName);
-    alert(`Sorry! Your edit will be undone. 
+    alert(`Sorry! Your added edit will be undone. 
           You already made an edit in the last 24 hours. 
           
           Please wait a day before making your next edit :)`);
