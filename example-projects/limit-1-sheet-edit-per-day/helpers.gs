@@ -1,3 +1,6 @@
+/** @OnlyCurrentDoc */
+// the comment above is special: it limits access to only this doc (instead of all of a user's docs)
+
 function app() {
   // SpreadsheetApp accesses the current Google Sheet.
   // If you use this code in another Google Doc type, you change this return line to another app type:

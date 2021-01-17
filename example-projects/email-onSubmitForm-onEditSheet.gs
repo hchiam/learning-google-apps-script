@@ -1,3 +1,6 @@
+/** @OnlyCurrentDoc */
+// the comment above is special: it limits access to only this doc (instead of all of a user's docs)
+
 // TODO:
 // 1) install a trigger at https://script.google.com to run both onFormSubmit_sheet "From spreadsheet" and "On edit" (or "On form submit" if the sheet was associated with a form).
 //     - make onFormSubmit_sheet call emailAtMostOnceADay

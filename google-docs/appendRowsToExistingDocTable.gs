@@ -1,3 +1,6 @@
+/** @OnlyCurrentDoc */
+// the comment above is special: it limits access to only this doc (instead of all of a user's docs)
+
 const defaultEmptyData = {
   date: "",
   name: "",
@@ -43,9 +46,13 @@ function appendRows(
       cell.setAttributes({
         [DocumentApp.Attribute.BACKGROUND_COLOR]: "#f3f3f3",
       });
-      cell.getChild(0).asParagraph().setAttributes({
-        [DocumentApp.Attribute.HORIZONTAL_ALIGNMENT]: DocumentApp.HorizontalAlignment.CENTER,
-      });
+      cell
+        .getChild(0)
+        .asParagraph()
+        .setAttributes({
+          [DocumentApp.Attribute.HORIZONTAL_ALIGNMENT]:
+            DocumentApp.HorizontalAlignment.CENTER,
+        });
     }
   }
 }

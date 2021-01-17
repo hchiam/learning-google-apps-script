@@ -1,3 +1,6 @@
+/** @OnlyCurrentDoc */
+// the comment above is special: it limits access to only this doc (instead of all of a user's docs)
+
 // references:
 // https://developers.googleblog.com/2018/03/making-progress-bars-with-slides-add-ons.html
 // https://developers.google.com/gsuite/add-ons/editors/slides/quickstart/progress-bar
@@ -11,12 +14,11 @@ var BAR_HEIGHT = 5; // px
 var presentation = SlidesApp.getActivePresentation();
 
 function onOpen() {
-  SlidesApp
-  .getUi()
-  .createMenu('Progress bars')
-  .addItem('Use progress bars', 'createBars')
-  .addItem('Remove progress bars', 'deleteBars')
-  .addToUi();
+  SlidesApp.getUi()
+    .createMenu("Progress bars")
+    .addItem("Use progress bars", "createBars")
+    .addItem("Remove progress bars", "deleteBars")
+    .addToUi();
 }
 
 /**
@@ -39,7 +41,7 @@ function createBars() {
         BAR_HEIGHT
       );
       bar.getBorder().setTransparent();
-      var color = '#555555';
+      var color = "#555555";
       var alpha = 0.5;
       bar.getFill().setSolidFill(color, alpha);
       bar.setLinkUrl(BAR_ID);
