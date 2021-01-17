@@ -2,7 +2,7 @@ const mainSheetName = "Sheet1";
 const counterCellSheetName = "Script-protected sheet";
 
 function onOpen() {
-  alert("Note: You can only make 1 edit a day.");
+  alert("Note: Please only type 1 edit a day.");
 }
 
 function onEdit(e) {
