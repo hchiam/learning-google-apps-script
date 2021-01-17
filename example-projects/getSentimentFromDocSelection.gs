@@ -7,36 +7,39 @@
 
 function getSentiment(text) {
   var apiKey = "your key here";
-  var apiEndpoint = 'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' + apiKey;
+  var apiEndpoint =
+    "https://language.googleapis.com/v1/documents:analyzeSentiment?key=" +
+    apiKey;
   var nlOptions = getCallOptions(text);
   var data = getCallResponse(apiEndpoint, nlOptions);
   var sentiment = 0.0;
-  var hasSentimentScore = data && data.documentSentiment && data.documentSentiment.score;
+  var hasSentimentScore =
+    data && data.documentSentiment && data.documentSentiment.score;
   if (hasSentimentScore) {
-     sentiment = data.documentSentiment.score;
+    sentiment = data.documentSentiment.score;
   }
-  
+
   return sentiment;
 }
 
 function getCallOptions(text) {
   var docDetails = {
-    language: 'en-us',
-    type: 'PLAIN_TEXT',
-    content: text
+    language: "en-us",
+    type: "PLAIN_TEXT",
+    content: text,
   };
-  
+
   var nlData = {
     document: docDetails,
-    encodingType: 'UTF8'
+    encodingType: "UTF8",
   };
-  
+
   var nlOptions = {
-    method : 'post',
-    contentType: 'application/json',
-    payload : JSON.stringify(nlData)
+    method: "post",
+    contentType: "application/json",
+    payload: JSON.stringify(nlData),
   };
-  
+
   return nlOptions;
 }
 
