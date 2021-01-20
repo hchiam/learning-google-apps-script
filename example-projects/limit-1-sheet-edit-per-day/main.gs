@@ -1,7 +1,7 @@
 /** @OnlyCurrentDoc */
 // the comment above is special: it limits access to only this doc (instead of all of a user's docs)
 
-const mainSheetName = "Sheet1";
+const mainSheetName = ""; // blank = all sheets
 const counterCellSheetName = "Script-protected sheet";
 
 function onOpen() {
