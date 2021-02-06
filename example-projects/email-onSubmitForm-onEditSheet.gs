@@ -27,13 +27,18 @@ function emailAtMostOnceADay(data) {
 function email(data) {
   const emailTo = targetEmailAddress;
   const emailSubject = "test email";
+  const comment =
+    data.comment.length > 200
+      ? data.comment.slice(0, 200) +
+        " [...] (Long comment - see google doc for full comment.)"
+      : data.comment;
   const emailBody = `Hi! 
 
 This is an automated message: 
 
 Someone edited the form or Google sheet today! 
 
-${data && data.comment ? "Here's the original comment: \n" + data.comment : ""}
+${data && data.comment ? "Here's the original comment: \n" + comment : ""}
 
 See the Google sheet here: ...
 `;
