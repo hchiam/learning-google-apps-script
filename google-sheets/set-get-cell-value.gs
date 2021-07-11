@@ -7,7 +7,7 @@ function setCellValue(cellAddress, value, sheetName) {
     ? spreadsheet.getSheetByName(sheetName)
     : spreadsheet.getActiveSheet();
   const counterCell = sheet.getRange(cellAddress);
-  counterCell.setValue(value);
+  counterCell.setValues(value);
 }
 
 function getCellValue(cellAddress, sheetName) {
@@ -16,7 +16,7 @@ function getCellValue(cellAddress, sheetName) {
     ? spreadsheet.getSheetByName(sheetName)
     : spreadsheet.getActiveSheet();
   const counterCell = sheet.getRange(cellAddress);
-  return counterCell.getValue();
+  return counterCell.getValues();
 }
 
 /*
