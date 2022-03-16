@@ -71,3 +71,11 @@ Another example: [email-onSubmitForm-onEditSheet.gs](https://github.com/hchiam/l
 Example G-Suite Google Slides Add-on: <https://github.com/hchiam/slides-titler>
 
 Starters for add-ons / web apps / chat bots are available in the Getting Started page when you log into Google Apps Script: <https://script.google.com/home/start>
+
+## Random Fun Facts
+
+You can view a Google Doc in read-only mode despite you having edit permissions. You can manually click on the "Editing mode" button and choose "Viewing". Or you can edit the share link: replace the ending after the doc id (like `/` or `/edit`) with `/preview` instead, like this:
+
+```text
+https://docs.google.com/document/d/<your_document_id>/preview
+```
