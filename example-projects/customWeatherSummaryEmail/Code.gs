@@ -14,6 +14,7 @@ const locationCell = "B5";
 const weatherAlertsCellRange = "A8:A";
 
 function sendEmail() {
+  forceRefresh();
   const location = getCellValue(locationCell);
   getData(location);
   GmailApp.sendEmail(emailAddress, `Weather: ${location}`, null, {
