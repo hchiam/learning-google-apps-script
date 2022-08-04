@@ -16,7 +16,7 @@ function getCellValue(cellAddress, sheetName) {
     ? spreadsheet.getSheetByName(sheetName)
     : spreadsheet.getActiveSheet();
   const counterCell = sheet.getRange(cellAddress);
-  return counterCell.getValues();
+  return counterCell.getValues(); // .filter(x => String(x).trim()).join('\n');
 }
 
 /*
