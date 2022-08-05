@@ -6,8 +6,6 @@
 // 2) set target email below:
 const emailAddress = "...@gmail.com";
 const tempCell = "B1";
-const minCell = "D1";
-const maxCell = "F1";
 const referenceCell = "B2";
 const needUmbrellaCell = "B3";
 const locationCell = "B5";
@@ -25,13 +23,11 @@ function sendEmail() {
 
 function getEmailBodyHtml() {
   const temp = getCellValue(tempCell);
-  const minTemp = getCellValue(minCell);
-  const maxTemp = getCellValue(maxCell);
   const reference = getCellValue(referenceCell);
   const needUmbrella = getCellValue(needUmbrellaCell);
   const weatherAlerts =
     "<br/><br/>" + getCellValue(weatherAlertsCellRange, null, "<br/><br/>");
-  const emailBodyHtml = `<p>${temp} (${minTemp}-${maxTemp}). Ref: ${reference}. ${
+  const emailBodyHtml = `<p>${temp} Ref: ${reference}. ${
     needUmbrella ? "Rain expected. " : ""
   }
 ${weatherAlerts} </p> 
@@ -41,13 +37,11 @@ ${weatherAlerts} </p>
 
 function getEmailBodyText() {
   const temp = getCellValue(tempCell);
-  const minTemp = getCellValue(minCell);
-  const maxTemp = getCellValue(maxCell);
   const reference = getCellValue(referenceCell);
   const needUmbrella = getCellValue(needUmbrellaCell);
   const weatherAlerts =
     "<br/><br/>" + getCellValue(weatherAlertsCellRange, null, "<br/><br/>");
-  const emailBodyText = `${temp} (${minTemp}-${maxTemp}). Ref: ${reference}. ${
+  const emailBodyText = `${temp} Ref: ${reference}. ${
     needUmbrella ? "Rain expected. " : ""
   }
 ${weatherAlerts} 
@@ -63,15 +57,11 @@ function getData(cityName) {
   Logger.log(data);
   const { main, name, sys, weather } = data;
   const temp = Math.round(main.feels_like || main.temp);
-  const minTemp = Math.round(main.temp_min);
-  const maxTemp = Math.round(main.temp_max);
   const reference = "≈ " + getReferenceText(temp);
   const needUmbrella = weather.main?.toLowerCase().includes("rain")
     ? "Yes"
     : "";
   setCellValue(tempCell, temp + "°C");
-  setCellValue(minCell, minTemp);
-  setCellValue(maxCell, maxTemp);
   setCellValue(referenceCell, reference);
   setCellValue(needUmbrellaCell, needUmbrella);
 }
