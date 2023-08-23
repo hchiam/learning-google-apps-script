@@ -8,7 +8,6 @@ function replaceSelectedText() {
       const end = e.getEndOffsetInclusive();
       const prompt = e.getElement().asText();
       const text = prompt.getText().substring(start, end+1);
-    Logger.log(start + ' ' + end + ' ' + text)
       const generatedText = getReplacementText(text);
       prompt.deleteText(start, end);
       prompt.insertText(start, generatedText);
@@ -17,5 +16,8 @@ function replaceSelectedText() {
 }
 
 function getReplacementText(text) {
-  return text.replace(/i/g, 'E');
+  const dictionary = {
+    e: 'EXAMPLE'
+  };
+  return text.replace(/./g, c => dictionary[c] ?? c);
 }
