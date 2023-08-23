@@ -17,7 +17,7 @@ function replaceSelectedText() {
 
 function getReplacementText(text) {
   const dictionary = {
-    e: 'EXAMPLE'
+    e: 'EXAMPLE',
   };
   return text.replace(/./g, c => dictionary[c] ?? c);
 }
