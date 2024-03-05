@@ -1,3 +1,5 @@
+// NOTE: if you want to refresh and trigger recalculation (apply all pending spreadsheet changes), look at forceRefresh https://github.com/hchiam/learning-google-apps-script/blob/main/google-sheets/forceRefresh.gs
+
 // do something
 
 Utilities.sleep(5000);
