@@ -8,7 +8,11 @@ function email(emailTo, emailSubject, emailBody, htmlEmailBody='', bcc='') {
       bcc, bcc,
     });
   } else {
-    GmailApp.sendEmail(emailTo, emailSubject, emailBody, bcc ?? {bcc:bcc});
+    if (bcc) {
+      GmailApp.sendEmail(emailTo, emailSubject, emailBody, {bcc:bcc});
+    } else {
+      GmailApp.sendEmail(emailTo, emailSubject, emailBody);
+    }
   }
 }
 
