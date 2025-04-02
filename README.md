@@ -74,8 +74,10 @@ Starters for add-ons / web apps / chat bots are available in the Getting Started
 
 ## Random Fun Facts
 
-You can view a Google Doc in read-only mode despite you having edit permissions. You can manually click on the "Editing mode" button and choose "Viewing". Or you can edit the share link: replace the ending after the doc id (like `/` or `/edit`) with `/preview` instead, like this:
+- You can view a Google Doc in read-only mode despite you having edit permissions. You can manually click on the "Editing mode" button and choose "Viewing". Or you can edit the share link: replace the ending after the doc id (like `/` or `/edit`) with `/preview` instead, like this:
 
-```text
-https://docs.google.com/document/d/<your_document_id>/preview
-```
+  ```text
+  https://docs.google.com/document/d/<your_document_id>/preview
+  ```
+
+- `char(10)` or `CHAR(10)` = `\n` new line character, so you can output multiline string in a formular
